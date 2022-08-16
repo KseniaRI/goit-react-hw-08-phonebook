@@ -4,7 +4,7 @@ export const theme = {
     white: '#fff',
     title: "#4169E1",
     error: 'red',
-    accent: 'skyblue',
+    accent: 'rgb(134, 183, 254)',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256, 512],
   // fonts: {

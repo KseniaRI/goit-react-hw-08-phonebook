@@ -1,22 +1,28 @@
-import { PageTitle } from './components/page-title/PageTitle';
-import { PhonebookForm } from './components/phonebook-form/PhonebokForm';
-import { SectionTitle } from './components/section-title/SectionTitle';
-import { Filter } from './components/filter/Filter';
-import { ContactList } from './components/contact-list/ContactList';
-import { Box } from 'components/Box';
+import { Route, Routes } from 'react-router-dom';
+
+
+
+
+import { HomePage } from 'pages/Home';
+import { SharedLayout } from 'components/shared-layout/SharedLayout';
+import { ContactsPage } from 'pages/ContactsPage';
+import { RegisterPage } from 'pages/RegisterPage';
+import { LoginPage } from 'pages/login-page/LoginPage';
 
 export const App = () => {
     return (
-      <Box as="div"
-        p="6"
-       >
-      <PageTitle title="Phonebook" />
-      <PhonebookForm /> 
-      <SectionTitle title="Contacts"/>
-      <Filter/>
-      <ContactList />
-    </Box>
-    )
+        <Routes>
+          <Route path='/' element={<SharedLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path='contacts' element={<ContactsPage />} />
+          <Route path='register' element={<RegisterPage/>} />
+            <Route path='login' element={<LoginPage/>}/>
+          </Route>
+
+        
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+    );
 }
 
 
