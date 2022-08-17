@@ -33,6 +33,6 @@ export const theme = {
   },
   radii: {
     none: '0',
-    normal: '4px',
+    normal: '6px',
   },
 };

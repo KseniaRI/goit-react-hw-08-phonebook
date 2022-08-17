@@ -18,7 +18,6 @@ flex-direction: column;
 align-items: center;
 background-color: ${p => p.theme.colors.white};
 width: ${p => p.theme.space[9]}px;
-height: ${p => p.theme.space[8]}px;
 padding: ${p => p.theme.space[4]}px;
 border: ${p => p.theme.borders.normal};
 border-color: ${p => p.theme.colors.accent};

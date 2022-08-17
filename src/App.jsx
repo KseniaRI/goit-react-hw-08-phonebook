@@ -6,8 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import { HomePage } from 'pages/Home';
 import { SharedLayout } from 'components/shared-layout/SharedLayout';
 import { ContactsPage } from 'pages/ContactsPage';
-import { RegisterPage } from 'pages/RegisterPage';
-import { LoginPage } from 'pages/login-page/LoginPage';
+import { RegisterPage } from 'pages/auth-pages/RegisterPage';
+import { LoginPage } from 'pages/auth-pages/LoginPage';
 
 export const App = () => {
     return (

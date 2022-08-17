@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
 // import * as phonebookActions from '../../redux/phonebookActions';
-import { itemsSlice } from 'redux/phonebookSlice';
+import { itemsSlice } from 'redux/contacts/phonebookSlice';
 
-import { getVisibleContacts } from 'redux/phonebookSelectors';
+import { getVisibleContacts } from 'redux/contacts/phonebookSelectors';
 import { Contacts, Contact, DeleteButton, Tel } from './ContactList.styled';
 
 

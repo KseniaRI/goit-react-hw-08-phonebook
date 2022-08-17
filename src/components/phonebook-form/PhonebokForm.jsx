@@ -3,10 +3,10 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-import { getItems } from 'redux/phonebookSelectors';
+import { getItems } from 'redux/contacts/phonebookSelectors';
 
 // import * as phonebookActions from '../../redux/phonebookActions';
-import { itemsSlice } from 'redux/phonebookSlice';
+import { itemsSlice } from 'redux/contacts/phonebookSlice';
 
 import { TextInput } from './TextInput';
 import { StyledForm, Button } from './PhonebookForm.styled';
