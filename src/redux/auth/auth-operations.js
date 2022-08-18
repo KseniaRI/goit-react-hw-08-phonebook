@@ -9,7 +9,7 @@ const token = {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;
     },
     unset() {
-        axios.defaults.headers.common.Authorization = '';
+        axios.defaults.headers.common.Authorization = null;
     }
 }
 
@@ -46,3 +46,18 @@ export const logout = createAsyncThunk('auth/logout', async () => {
         console.log(error);
     }
 });
+
+export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    if (persistedToken) {
+        token.set(persistedToken);
+        try {
+            const response = await axios.get('/users/current');
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+        
+    }
+})
