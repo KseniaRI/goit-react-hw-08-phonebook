@@ -7,19 +7,22 @@ import { useDispatch } from "react-redux";
 import { fetchContacts } from "redux/contacts/phonebook-operations";
 
 
-export const ContactsPage = () => {
+const ContactsPage = () => {
    
     const dispatch = useDispatch();
+   
     
     // useEffect(() => dispatch(fetchContacts()), [dispatch]);
 
     dispatch(fetchContacts());
 
     return (
-        <Box as="div">
-            <SectionTitle title="Contacts"/>
-            <Filter/>
-            <ContactList /> 
-        </Box>
+        <Box as='div'>
+           <SectionTitle title="Contacts"/>
+           <Filter/>
+           <ContactList /> 
+        </Box>    
     )
 }
+
+export default ContactsPage;

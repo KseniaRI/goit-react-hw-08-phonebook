@@ -3,7 +3,7 @@ import { PageTitle } from "components/page-title/PageTitle";
 import { PhonebookForm } from "components/phonebook-form/PhonebokForm";
 
 
-export const HomePage = () => {
+const HomePage = () => {
     return (
         <Box as="div">
             <PageTitle title="Phonebook" />
@@ -11,3 +11,5 @@ export const HomePage = () => {
         </Box>
     )
 }
+
+export default HomePage;

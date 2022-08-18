@@ -1,12 +1,14 @@
+import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { HomePage } from 'pages/Home';
 import { SharedLayout } from 'components/shared-layout/SharedLayout';
-import { ContactsPage } from 'pages/ContactsPage';
-import { RegisterPage } from 'pages/auth-pages/RegisterPage';
-import { LoginPage } from 'pages/auth-pages/LoginPage';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
+import PrivateRoute from 'components/PrivateRoute';
+
+const HomePage = lazy(() => import('./pages/Home'));
+const RegisterPage = lazy(() => import('./pages/auth-pages/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/auth-pages/LoginPage'));
+const ContactsPage = lazy(() => import('./pages/ContactsPage'));
 
 export const App = () => {
 
@@ -21,12 +23,10 @@ export const App = () => {
         <Routes>
           <Route path='/' element={<SharedLayout />}>
             <Route index element={<HomePage />} />
-            <Route path='contacts' element={<ContactsPage />} />
-          <Route path='register' element={<RegisterPage/>} />
+            <Route path='contacts' element={<PrivateRoute><ContactsPage/></PrivateRoute>} />
+            <Route path='register' element={<RegisterPage/>} />
             <Route path='login' element={<LoginPage/>}/>
           </Route>
-
-        
           <Route path="*" element={<HomePage />} />
         </Routes>
     );
