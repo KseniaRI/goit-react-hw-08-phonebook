@@ -1,16 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
+import Form from 'react-bootstrap/Form';
 import * as Yup from 'yup';
-import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { getItems } from 'redux/contacts/phonebook-selectors';
-import { TextInput } from './TextInput';
-import { StyledForm, Button } from './PhonebookForm.styled';
 import { saveContact } from 'redux/contacts/phonebook-operations';
+import { StyledButton, StyledForm } from '../../Forms.styled';
 import { toast } from 'react-toastify';
 
-const idName = nanoid();
-const idNumber = nanoid();
 const phonePattern = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
 const namePattern = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 
@@ -37,13 +34,53 @@ export const PhonebookForm = () => {
             dispatch(saveContact(newContact));
           }
           resetForm();
-  }}
-      >
-        <StyledForm autoComplete="off" >
-          <TextInput label="Name" name="name" type="text" id={idName} placeholder="Jack Black" />
-          <TextInput label="Number" name="number" type="tel" id={idNumber} placeholder="123-45-67" />
-        <Button type="submit">Add contact</Button>
-      </StyledForm>   
+        }}
+        >
+          {({
+            handleSubmit,
+            handleChange,
+            values,
+            touched,
+            errors,
+            isInvalid,
+          }) => (
+            <StyledForm noValidate onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formContactName">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="name"
+                    placeholder="Jack Black"
+                    value={values.name}
+                    onChange={handleChange}
+                    isInvalid={!!errors.name}
+                />
+                  <Form.Control.Feedback type="invalid">
+                      {errors.name}
+                  </Form.Control.Feedback>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formContactNumber">
+                  <Form.Label>Number</Form.Label>
+                  <Form.Control
+                    type="tel"
+                    name="number"
+                    placeholder="123-45-67"
+                    value={values.number}
+                    onChange={handleChange}
+                    // isValid={touched.number && !errors.number}
+                    isInvalid={!!errors.number}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.number}
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <StyledButton variant="primary" type="submit">
+                  Submit
+                </StyledButton>
+
+            </StyledForm>
+          )}
         </Formik>
     </>
     )

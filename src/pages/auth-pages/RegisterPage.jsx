@@ -1,5 +1,5 @@
 import Form from 'react-bootstrap/Form';
-import { StyledButton, StyledForm } from './AuthPages.styled';
+import { StyledButton, StyledForm } from '../../Forms.styled';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
@@ -31,7 +31,7 @@ export const RegisterPage = () => {
           values,
           touched,
           errors,
-          isValid,
+          isInvalid,
         }) => (
           <StyledForm noValidate onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formRegisterName">
@@ -41,8 +41,11 @@ export const RegisterPage = () => {
                     placeholder="Enter name"
                     value={values.name}
                     onChange={handleChange}
-                    isValid={touched.name && !errors.name}
-                  />
+                    isInvalid={!!errors.name}
+                   />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.name}
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formRegisterEmail">
@@ -53,8 +56,11 @@ export const RegisterPage = () => {
                     placeholder="Enter email"
                     value={values.email}
                     onChange={handleChange}
-                    isValid={touched.email && !errors.email}
+                    isInvalid={!!errors.email}
                   />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.email}
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formRegisterPassword">
@@ -65,8 +71,11 @@ export const RegisterPage = () => {
                     placeholder="Password"
                     value={values.password}
                     onChange={handleChange}
-                    isValid={touched.password && !errors.password}
+                    isInvalid={!!errors.password}
                   />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.password}
+                  </Form.Control.Feedback>
                 </Form.Group>
                 <StyledButton variant="primary" type="submit">
                   Submit

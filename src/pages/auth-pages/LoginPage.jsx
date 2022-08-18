@@ -1,5 +1,5 @@
 import Form from 'react-bootstrap/Form';
-import { StyledButton, StyledForm } from './AuthPages.styled';
+import { StyledButton, StyledForm } from '../../Forms.styled';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
@@ -17,7 +17,7 @@ export const LoginPage = () => {
             password: Yup.string().required('Required'),
         })
         } 
-      onSubmit={({ email, password }, { resetForm }) => {
+        onSubmit={({ email, password }, { resetForm }) => {
           dispatch(login({ email, password }));
           resetForm();
         }}
@@ -28,7 +28,7 @@ export const LoginPage = () => {
           values,
           touched,
           errors,
-          isValid,
+          isInvalid
         }) => (
           <StyledForm noValidate onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formLoginEmail">
@@ -39,8 +39,11 @@ export const LoginPage = () => {
                     placeholder="Enter email"
                     value={values.email}
                     onChange={handleChange}
-                    isValid={touched.email && !errors.email}
-                  />
+                    isInvalid={!!errors.email}
+              />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.email}
+                  </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formLoginPassword">
@@ -51,8 +54,11 @@ export const LoginPage = () => {
                     placeholder="Password"
                     value={values.password}
                     onChange={handleChange}
-                    isValid={touched.password && !errors.password}
+                    isInvalid={!!errors.password}
                   />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.password}
+                  </Form.Control.Feedback>
                 </Form.Group>
                 <StyledButton variant="primary" type="submit">
                   Submit

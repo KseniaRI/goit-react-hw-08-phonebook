@@ -8,6 +8,7 @@ import { fetchContacts } from "redux/contacts/phonebook-operations";
 
 
 export const ContactsPage = () => {
+   
     const dispatch = useDispatch();
     
     // useEffect(() => dispatch(fetchContacts()), [dispatch]);

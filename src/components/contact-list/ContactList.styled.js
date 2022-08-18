@@ -16,7 +16,7 @@ font-weight: ${p => p.theme.fontWeights.bold};
 `;
 export const DeleteButton = styled.button`
 height: ${p => p.theme.space[5]}px;
-width: ${p => p.theme.space[6]}px;
+width: ${p => p.theme.space[7]}px;
 background-color: ${p => p.theme.colors.white};
 cursor: pointer;
 outline: none;
