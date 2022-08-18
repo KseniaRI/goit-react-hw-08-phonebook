@@ -1,23 +1,19 @@
 import { combineReducers, createSlice } from "@reduxjs/toolkit";
-import { nanoid } from 'nanoid';
+import { saveContact, fetchContacts, deleteContact } from "./phonebook-operations";
 
 export const itemsSlice = createSlice({
     name: 'items',
     initialState: [],
-    reducers: {
-        saveContact: {
-            reducer: (state, action) => {
-                state.push(action.payload)
-            },
-            prepare: ({ name, number }) => {
-                const id = nanoid();
-                return { payload: { name, number, id } }
-            },
+    extraReducers: {
+        [fetchContacts.fulfilled](state, action) {
+            return action.payload;
         },
-        deleteContact(state, action) {
-            return state.filter(item => item.id !== action.payload);
-        },
-        
+        [saveContact.fulfilled](state, action) {
+            state.push(action.payload);
+        }, 
+        [deleteContact.fulfilled](state, action) {
+              return state.filter(item => item.id !== action.payload);
+         }
     }
 })
 

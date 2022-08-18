@@ -3,13 +3,11 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-import { getItems } from 'redux/contacts/phonebookSelectors';
-
-// import * as phonebookActions from '../../redux/phonebookActions';
-import { itemsSlice } from 'redux/contacts/phonebookSlice';
-
+import { getItems } from 'redux/contacts/phonebook-selectors';
 import { TextInput } from './TextInput';
 import { StyledForm, Button } from './PhonebookForm.styled';
+import { saveContact } from 'redux/contacts/phonebook-operations';
+import { toast } from 'react-toastify';
 
 const idName = nanoid();
 const idNumber = nanoid();
@@ -33,11 +31,10 @@ export const PhonebookForm = () => {
           const contactNames = items.map(item => item.name);
               
           if (contactNames.includes(name)) {
-            alert(`${name} is already in contacts`);
+            toast.error(`${name} is already in contacts`);
           } else {
             const newContact = { name, number };
-            // dispatch(phonebookActions.saveContact(newContact));
-            dispatch(itemsSlice.actions.saveContact(newContact));
+            dispatch(saveContact(newContact));
           }
           resetForm();
   }}
@@ -47,7 +44,7 @@ export const PhonebookForm = () => {
           <TextInput label="Number" name="number" type="tel" id={idNumber} placeholder="123-45-67" />
         <Button type="submit">Add contact</Button>
       </StyledForm>   
-    </Formik>
+        </Formik>
     </>
     )
 }

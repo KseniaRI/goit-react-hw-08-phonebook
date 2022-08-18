@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
-import { getFilter } from 'redux/contacts/phonebookSelectors';
+import { getFilter } from 'redux/contacts/phonebook-selectors';
 
 // import * as phonebookActions from '../../redux/phonebookActions';
-import { filterSlice } from 'redux/contacts/phonebookSlice';
+import { filterSlice } from 'redux/contacts/phonebook-slice';
 
 import { FilterTitle, FilterInput } from './Filter.styled';
 import { Box } from 'components/Box';

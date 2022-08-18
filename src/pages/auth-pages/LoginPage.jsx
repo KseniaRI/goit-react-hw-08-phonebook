@@ -4,7 +4,6 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/auth/auth-operations';
-import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 export const LoginPage = () => {
@@ -61,7 +60,6 @@ export const LoginPage = () => {
             </StyledForm>
          )}
     </Formik>
-    <ToastContainer autoClose={3000}/>
   </>
   )
 }
