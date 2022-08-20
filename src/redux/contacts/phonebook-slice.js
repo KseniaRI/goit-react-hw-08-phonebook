@@ -1,19 +1,49 @@
 import { combineReducers, createSlice } from "@reduxjs/toolkit";
 import { saveContact, fetchContacts, deleteContact } from "./phonebook-operations";
 
-export const itemsSlice = createSlice({
+const initialState = {
+    contacts: [],
+    isLoading: false,
+    error: null,
+}
+
+export const contactsSlice = createSlice({
     name: 'items',
-    initialState: [],
+    initialState,
     extraReducers: {
-        [fetchContacts.fulfilled](state, action) {
-            return action.payload;
+        [fetchContacts.pending]: (state) => {
+             state.isLoading = true;
         },
-        [saveContact.fulfilled](state, action) {
-            state.push(action.payload);
+        [fetchContacts.fulfilled]: (state, action) => {
+            state.contacts = action.payload;
+            state.isLoading = false;
+        },
+        [fetchContacts.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
+        [saveContact.pending]: (state) => {
+            state.isLoading = true;
+        },
+        [saveContact.fulfilled]: (state, action) => {
+            state.contacts.push(action.payload);
+            state.isLoading = false;
         }, 
-        [deleteContact.fulfilled](state, action) {
-              return state.filter(item => item.id !== action.payload);
-         }
+        [saveContact.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
+        [deleteContact.pending]: (state) => {
+             state.isLoading = true;
+        },
+        [deleteContact.fulfilled]: (state, action) => {
+            state.contacts = state.contacts.filter(item => item.id !== action.payload);
+            state.isLoading = false;
+        },
+        [deleteContact.rejected]: (state, action) => {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
     }
 })
 
@@ -28,7 +58,7 @@ export const filterSlice = createSlice({
 });
 
 export const phonebookReducer = combineReducers({
-    items: itemsSlice.reducer,
+    items: contactsSlice.reducer,
     filter: filterSlice.reducer,
 })
 

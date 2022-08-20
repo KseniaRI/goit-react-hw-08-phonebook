@@ -3,12 +3,13 @@ import { Formik } from 'formik';
 import Form from 'react-bootstrap/Form';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
-import { getItems } from 'redux/contacts/phonebook-selectors';
+import { getIsLoading, getItems } from 'redux/contacts/phonebook-selectors';
 import { saveContact } from 'redux/contacts/phonebook-operations';
 import { StyledButton, StyledForm } from '../../Forms.styled';
 import { toast } from 'react-toastify';
-import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+
+
 
 const phonePattern = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
 const namePattern = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
@@ -16,12 +17,11 @@ const namePattern = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-�
 export const PhonebookForm = () => {
   const items = useSelector(getItems);
   const dispatch = useDispatch();
-
-  const [isAdded, setIsAdded] = useState(false);
+  const isAdding = useSelector(getIsLoading);
 
     return (
       <>
-        {isAdded ? <Navigate to='/contacts' /> :
+        {isAdding ? <Navigate to='/contacts' /> :
     <Formik
         initialValues={{ name: '', number: '' }}
         validationSchema={Yup.object({
@@ -37,7 +37,6 @@ export const PhonebookForm = () => {
           } else {
             const newContact = { name, number };
             dispatch(saveContact(newContact));
-            setIsAdded(!isAdded);
           }
           resetForm();
         }}
@@ -84,7 +83,6 @@ export const PhonebookForm = () => {
                 <StyledButton variant="primary" type="submit">
                   Submit
                 </StyledButton>
-
             </StyledForm>
           )}
           </Formik>

@@ -1,26 +1,19 @@
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
-import { getVisibleContacts } from 'redux/contacts/phonebook-selectors';
-import { Contacts, Contact, DeleteButton, Tel } from './ContactList.styled';
-import { deleteContact } from 'redux/contacts/phonebook-operations';
+import { useSelector } from 'react-redux';
+import { getIsLoading, getVisibleContacts } from 'redux/contacts/phonebook-selectors';
+import { Contacts, ListClipLoader} from './ContactList.styled';
+
+import { ContactItem } from './ContactItem';
+
 
 export const ContactList = () => {
     const contacts = useSelector(getVisibleContacts);
-    const dispatch = useDispatch();
+    const isFetching = useSelector(getIsLoading);
 
     return (
         <Contacts>
-            {contacts.map(({ id, name, number }) => { 
-                
-                return (
-                        <Contact key={id}>{name}: <Tel>{number}</Tel>
-                        <DeleteButton type="button" onClick={() => dispatch(deleteContact(id))}>
-                            Delete
-                        </DeleteButton>
-                        </Contact>
-                )
-            }
-            )}
+            <ListClipLoader loading={isFetching} size={50} />
+            {contacts && contacts.map(({ id, name, number }) => <ContactItem key={id} id={id} name={name} number={number}/>)}
         </Contacts>
     );
 }
