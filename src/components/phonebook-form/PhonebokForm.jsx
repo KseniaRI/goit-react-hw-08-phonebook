@@ -45,7 +45,6 @@ export const PhonebookForm = () => {
             handleSubmit,
             handleChange,
             values,
-            touched,
             errors,
             isInvalid,
           }) => (
@@ -73,7 +72,6 @@ export const PhonebookForm = () => {
                     placeholder="123-45-67"
                     value={values.number}
                     onChange={handleChange}
-                    // isValid={touched.number && !errors.number}
                     isInvalid={!!errors.number}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -81,7 +79,7 @@ export const PhonebookForm = () => {
                   </Form.Control.Feedback>
                 </Form.Group>
                 <StyledButton variant="primary" type="submit">
-                  Submit
+                  Add contact
                 </StyledButton>
             </StyledForm>
           )}
