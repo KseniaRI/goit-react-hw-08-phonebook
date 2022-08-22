@@ -4,8 +4,9 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/auth-operations';
-import { Navigate } from 'react-router-dom';
+import { Navigate} from 'react-router-dom';
 import { getIsLoggedIn } from 'redux/auth/auth-selectors';
+import { Message } from './AuthPages.styled';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,9 @@ const RegisterPage = () => {
   
   return (
     <>
-      {loggedIn ? <Navigate to='/' replace={true} /> :
+      {loggedIn ? <Navigate to='/contacts' replace={true} /> :
+        <>
+        <Message>Join us now!</Message>
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
           validationSchema={Yup.object({
@@ -86,6 +89,7 @@ const RegisterPage = () => {
             </StyledForm>
           )}
         </Formik>
+        </>  
       }
   </>
     )

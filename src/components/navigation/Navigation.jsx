@@ -7,7 +7,7 @@ export const Navigation = () => {
      const loggedIn = useSelector(getIsLoggedIn);
     return (
         <Box as="nav">
-            <StyledNavLink to="/" exact="true" >Home</StyledNavLink>
+            <StyledNavLink to="/" >Home</StyledNavLink>
             {loggedIn && <StyledNavLink to="/contacts" exact="true">Contacts</StyledNavLink>}
         </Box>
     )

@@ -6,14 +6,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from 'redux/auth/auth-operations';
 import "react-toastify/dist/ReactToastify.css";
 import { getIsLoggedIn } from 'redux/auth/auth-selectors';
-import { Navigate } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
+import { Message } from './AuthPages.styled';
+
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(getIsLoggedIn);
   return (
     <>
-      {loggedIn ? <Navigate to='/' replace={true} /> :
+      
+      {loggedIn ? <Navigate to='/contacts' replace={true} /> :
+        <>
+        <Message>Please log in or <NavLink to="/register">Register</NavLink></Message>
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={Yup.object({
@@ -69,7 +74,8 @@ const LoginPage = () => {
               </StyledButton>
             </StyledForm>
           )}
-        </Formik>
+          </Formik>
+          </>
       }
   </>
   )
