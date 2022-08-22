@@ -50,7 +50,7 @@ export const NavBar = () => {
               <Box as="div"
                 ml="auto"
               >
-                <NavDropdown title="Enter in your account" id="nav-dropdown">
+                <NavDropdown title="Log in to your account" id="nav-dropdown">
                         <NavDropdown.Item to="/login" as={NavLink}>Login</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item to="/register" as={NavLink}>Register</NavDropdown.Item>
