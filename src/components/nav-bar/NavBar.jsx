@@ -9,7 +9,7 @@ import { getUserName } from "redux/auth/auth-selectors";
 import { NavLink } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { Box } from 'components/Box';
-
+import { FcMultipleSmartphones } from 'react-icons/fc';
 
 export const NavBar = () => {
 
@@ -21,13 +21,15 @@ export const NavBar = () => {
       <StyledNavBar sticky="top">
           <Container>
                 <Navbar.Brand to="/" as={NavLink}>
-                  <img src="https://cdn-icons.flaticon.com/png/512/2208/premium/2208278.png?token=exp=1661188455~hmac=8f45dd15bca02062dc9a3241837ffa6a"
+                  <FcMultipleSmartphones size="30"/>
+                  {/* <img src="https://cdn-icons.flaticon.com/png/512/2208/premium/2208278.png?token=exp=1661188455~hmac=8f45dd15bca02062dc9a3241837ffa6a"
                       className="d-inline-block"
                       alt="phone"
                       width="30"
-                  />{' '}
+                  /> */}
+                {' '}
                   Phonebook
-              </Navbar.Brand >
+                </Navbar.Brand >
                 
                 <Navbar.Toggle aria-controls="navbar-nav" />
                 <Navbar.Collapse id="navbar-nav" >

@@ -26,7 +26,7 @@ export const PhonebookForm = () => {
       <>
         {isAdding ? <Navigate to='/contacts' /> :
           <>
-            {!loggedIn && <Message>To start <NavLink to="/login">enter in your account</NavLink> or <NavLink to="register">register</NavLink></Message>}
+            {!loggedIn && <Message>To start <NavLink to="/login">Log into your account</NavLink> or <NavLink to="register">Register</NavLink></Message>}
             <Formik
                 initialValues={{ name: '', number: '' }}
                 validationSchema={Yup.object({

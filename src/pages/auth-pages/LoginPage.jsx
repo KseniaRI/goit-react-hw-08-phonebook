@@ -18,7 +18,7 @@ const LoginPage = () => {
       
       {loggedIn ? <Navigate to='/contacts' replace={true} /> :
         <>
-        <Message>Please log in or <NavLink to="/register">Register</NavLink></Message>
+        <Message>Please Log in or <NavLink to="/register">Register</NavLink></Message>
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={Yup.object({
