@@ -12,7 +12,7 @@ export const ContactList = () => {
     return (
         <ListGroup as="ul" variant="flush" >
              <ListClipLoader loading={isFetching} size={50} />
-            {contacts && contacts.map(({ id, name, number }) => <ContactItem key={id} id={id} name={name} number={number}/>)}   
+            {contacts && contacts.map(({ id, name, number }) => <ContactItem key={id} id={id} name={name} number={number} />)}   
         </ListGroup>
     );
 }
