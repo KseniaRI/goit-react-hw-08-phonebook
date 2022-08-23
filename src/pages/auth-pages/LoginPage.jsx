@@ -7,15 +7,16 @@ import { login } from 'redux/auth/auth-operations';
 import "react-toastify/dist/ReactToastify.css";
 import { getIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Navigate, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Message, StyledContainer } from './AuthPages.styled';
 
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(getIsLoggedIn);
+
   return (
     <>
-      
       {loggedIn ? <Navigate to='/contacts' replace={true} /> :
         <StyledContainer>
           <Message>Please Log in or <NavLink to="/register">Register</NavLink></Message>
@@ -30,7 +31,7 @@ const LoginPage = () => {
               dispatch(login({ email, password }));
               resetForm();
             }}
-          >
+            >
             {({
               handleSubmit,
               handleChange,
@@ -50,9 +51,7 @@ const LoginPage = () => {
                     onChange={handleChange}
                     isInvalid={!!errors.email}
                   />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.email}
-                  </Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formLoginPassword">
@@ -65,20 +64,25 @@ const LoginPage = () => {
                     onChange={handleChange}
                     isInvalid={!!errors.password}
                   />
-                  <Form.Control.Feedback type="invalid">
-                    {errors.password}
-                  </Form.Control.Feedback>
+                  <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
                 </Form.Group>
+
                 <StyledButton variant="primary" type="submit">
                   Log in
                 </StyledButton>
               </StyledForm>
             )}
-            </Formik>
-         </StyledContainer>
+          </Formik>
+        </StyledContainer>
       }
-  </>
+    </>
   )
+}
+
+LoginPage.propTypes = {
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
 }
 
 export default LoginPage;

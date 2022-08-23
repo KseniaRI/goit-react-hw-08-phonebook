@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-
 export const StyledHeader = styled.section`
 display: flex;
 align-items: center;

@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from 'redux/contacts/phonebook-selectors';
-import { AiOutlineSearch } from 'react-icons/ai';
 import { filterSlice } from 'redux/contacts/phonebook-slice';
+import { AiOutlineSearch } from 'react-icons/ai';
+import PropTypes from 'prop-types';
 import { Box } from 'components/Box';
 import { Form, InputGroup } from 'react-bootstrap';
 
@@ -25,5 +26,9 @@ export const Filter = () => {
             </InputGroup>
         </Box>
     );
+}
+
+Filter.propTypes = {
+    value: PropTypes.string.isRequired,
 }
    

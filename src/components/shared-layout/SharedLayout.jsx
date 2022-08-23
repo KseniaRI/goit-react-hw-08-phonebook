@@ -1,9 +1,8 @@
 import { Suspense } from "react";
 import { Outlet } from 'react-router-dom';
-import { StyledSpinner } from "./SharedLayout.styled";
 import { ToastContainer } from "react-toastify";
 import { NavBar } from "components/nav-bar/NavBar";
-
+import { StyledSpinner } from "./SharedLayout.styled";
 
 export const SharedLayout = () => {
     return (

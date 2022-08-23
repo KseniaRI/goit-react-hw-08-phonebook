@@ -1,5 +1,6 @@
-import { PageTitle } from "components/page-title/PageTitle"
-import { StyledContactsHeader } from "./ContactsHeader.styled"
+import { PageTitle } from "components/page-title/PageTitle";
+import PropTypes from 'prop-types';
+import { StyledContactsHeader } from "./ContactsHeader.styled";
 
 export const ContactsHeader = () => {
     return (
@@ -7,4 +8,8 @@ export const ContactsHeader = () => {
             <PageTitle title="Contacts"/>
         </StyledContactsHeader>
     )
+}
+
+ContactsHeader.propTypes = {
+    title: PropTypes.string.isRequired,
 }

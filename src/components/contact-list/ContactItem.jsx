@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ClipLoader } from "react-spinners"
 import { deleteContact } from "redux/contacts/phonebook-operations";
 import { getIsLoading } from "redux/contacts/phonebook-selectors";
+import PropTypes from 'prop-types';
+import { ClipLoader } from "react-spinners"
 import { DeleteButton, ItemWrap, StyledListGroupItem} from "./ContactList.styled"
 
 export const ContactItem = ({ id, name, number }) => {
@@ -28,4 +29,11 @@ export const ContactItem = ({ id, name, number }) => {
                 </ItemWrap>
         </StyledListGroupItem>
     )
+}
+
+ContactItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    isDeleting: PropTypes.bool.isRequired,
 }

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-
 export const StyledContactsHeader = styled.section`
 display: flex;
 align-items: center;
