@@ -1,17 +1,13 @@
 export const theme = {
   colors: {
-    black: '#000',
+    black: '#696969',
     white: '#fff',
     title: "#4169E1",
-    error: 'red',
-    accent: 'rgb(134, 183, 254)',
+    error: '#FF0000',
+    accent: '#0d6efd',
+    background: 'rgb(134, 183, 254, 0.7)',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256, 512],
-  // fonts: {
-  //   body: 'system-ui, sans-serif',
-  //   heading: 'system-ui, sans-serif',
-  //   monospace: 'Menlo, monospace',
-  // },
   fontSizes: {
     xs: '12px',
     s: '14px',

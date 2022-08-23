@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { getIsLoading, getVisibleContacts } from 'redux/contacts/phonebook-selectors';
-import { Contacts, ListClipLoader} from './ContactList.styled';
+import { ListClipLoader} from './ContactList.styled';
 
 import { ContactItem } from './ContactItem';
+import { ListGroup } from 'react-bootstrap';
 
 
 export const ContactList = () => {
@@ -11,10 +12,10 @@ export const ContactList = () => {
     const isFetching = useSelector(getIsLoading);
 
     return (
-        <Contacts>
-            <ListClipLoader loading={isFetching} size={50} />
-            {contacts && contacts.map(({ id, name, number }) => <ContactItem key={id} id={id} name={name} number={number}/>)}
-        </Contacts>
+        <ListGroup as="ul" variant="flush" >
+             <ListClipLoader loading={isFetching} size={50} />
+            {contacts && contacts.map(({ id, name, number }) => <ContactItem key={id} id={id} name={name} number={number}/>)}   
+        </ListGroup>
     );
 }
 

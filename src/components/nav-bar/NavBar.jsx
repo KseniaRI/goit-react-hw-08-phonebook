@@ -11,7 +11,7 @@ import { Container } from 'react-bootstrap';
 import { Box } from 'components/Box';
 import { FcMultipleSmartphones } from 'react-icons/fc';
 import { AiOutlineContacts, AiOutlineUsergroupAdd } from 'react-icons/ai';
-import { IoIosContact } from 'react-icons/io'
+import { IoIosContact } from 'react-icons/io';
 
 export const NavBar = () => {
 
@@ -58,16 +58,21 @@ export const NavBar = () => {
                                   </Navbar.Text>
                                   <StyledButton type="button" onClick={() => dispatch(logout())}>Logout</StyledButton>
                                 </div>
-           
               :
               <Box as="div"
                 ml="auto"
               >
-                <NavDropdown title="Log in to your account" id="nav-dropdown">
+                <Box as="div"
+                  display="flex"
+                  alignItems="center"
+                >
+                      <NavDropdown title="Log in to your account" id="nav-dropdown">
                         <NavDropdown.Item to="/login" as={NavLink}>Login</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item to="/register" as={NavLink}>Register</NavDropdown.Item>
-                </NavDropdown>
+                      </NavDropdown>
+                </Box>
+                
                 </Box>
                       }
             </Nav>        
