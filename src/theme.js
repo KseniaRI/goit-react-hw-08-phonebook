@@ -5,6 +5,7 @@ export const theme = {
     title: "#4169E1",
     error: '#FF0000',
     accent: '#0d6efd',
+    header: 'rgb(134, 183, 254)',
     background: 'rgb(134, 183, 254, 0.7)',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256, 512],

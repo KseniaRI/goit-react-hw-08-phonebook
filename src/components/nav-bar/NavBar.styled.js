@@ -3,7 +3,7 @@ import { Navbar } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 
 export const StyledNavBar = styled(Navbar)`
-background-color: ${p => p.theme.colors.background};
+background-color: ${p => p.theme.colors.header};
 margin-bottom: ${p => p.theme.space[6]}px;
 `;
 
