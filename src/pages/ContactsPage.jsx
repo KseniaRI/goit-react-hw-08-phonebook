@@ -1,7 +1,7 @@
 
 import { ContactList } from "components/contact-list/ContactList";
+import { ContactsHeader } from "components/contacts-header/ContactsHeader";
 import { Filter } from "components/filter/Filter";
-import { SectionTitle } from "components/section-title/SectionTitle";
 import { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch} from "react-redux";
@@ -18,7 +18,7 @@ const ContactsPage = () => {
 
     return (
         <Container>
-           <SectionTitle title="Contacts"/>
+           <ContactsHeader/>
            <Filter/>
            <ContactList /> 
         </Container>    

@@ -1,14 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { nanoid } from 'nanoid';
 import { getFilter } from 'redux/contacts/phonebook-selectors';
-
-// import * as phonebookActions from '../../redux/phonebookActions';
+import { AiOutlineSearch } from 'react-icons/ai';
 import { filterSlice } from 'redux/contacts/phonebook-slice';
-
-import { FilterTitle, FilterInput } from './Filter.styled';
 import { Box } from 'components/Box';
-
-const filterId = nanoid();
+import { Form, InputGroup } from 'react-bootstrap';
 
 export const Filter = () => {
     const value = useSelector(getFilter);
@@ -18,12 +13,16 @@ export const Filter = () => {
         <Box as="div"
         display="flex"
         flexDirection="column"
-        alignItems="center">
-            <FilterTitle htmlFor={filterId}>Find Contacts by name</FilterTitle>
-            <FilterInput type="text" value={value}
-                // onChange={(evt) => dispatch(phonebookActions.changeFilter(evt.target.value))}
-                onChange={(evt) => dispatch(filterSlice.actions.changeFilter(evt.target.value))}
-                id={filterId} />
+            alignItems="center"
+            width="280px"
+        m="0 auto">
+            <InputGroup className="mb-3">
+                <InputGroup.Text><AiOutlineSearch size="24" /></InputGroup.Text>
+                <Form.Control 
+                    value={value}
+                    onChange={(evt) => dispatch(filterSlice.actions.changeFilter(evt.target.value))}
+                    placeholder="Find Contact by name"/>
+            </InputGroup>
         </Box>
     );
 }

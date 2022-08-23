@@ -7,8 +7,7 @@ import { login } from 'redux/auth/auth-operations';
 import "react-toastify/dist/ReactToastify.css";
 import { getIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Navigate, NavLink } from 'react-router-dom';
-import { Message } from './AuthPages.styled';
-import { Container } from 'react-bootstrap';
+import { Message, StyledContainer } from './AuthPages.styled';
 
 
 const LoginPage = () => {
@@ -18,7 +17,7 @@ const LoginPage = () => {
     <>
       
       {loggedIn ? <Navigate to='/contacts' replace={true} /> :
-        <Container>
+        <StyledContainer>
           <Message>Please Log in or <NavLink to="/register">Register</NavLink></Message>
           <Formik
             initialValues={{ email: '', password: '' }}
@@ -71,12 +70,12 @@ const LoginPage = () => {
                   </Form.Control.Feedback>
                 </Form.Group>
                 <StyledButton variant="primary" type="submit">
-                  Submit
+                  Log in
                 </StyledButton>
               </StyledForm>
             )}
             </Formik>
-         </Container>
+         </StyledContainer>
       }
   </>
   )

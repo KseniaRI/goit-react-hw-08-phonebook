@@ -16,10 +16,14 @@ export const StyledButton = styled(Button)`
 `;
 
 export const StyledForm = styled(Form)`
+
     width: ${p => p.theme.space[9]}px;
     margin: 0 auto;
     border: ${p => p.theme.borders.normal};
     border-color: ${p => p.theme.colors.accent};
     border-radius: ${p => p.theme.radii.normal};
     padding: ${p => p.theme.space[4]}px;
+    background-color: ${p => p.theme.colors.accent};
+    opacity: 0.9;
+   
 `;

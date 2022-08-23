@@ -6,8 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/auth-operations';
 import { Navigate} from 'react-router-dom';
 import { getIsLoggedIn } from 'redux/auth/auth-selectors';
-import { Message } from './AuthPages.styled';
-import { Container } from 'react-bootstrap';
+import { Message, StyledContainer } from './AuthPages.styled';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -16,7 +15,7 @@ const RegisterPage = () => {
   return (
     <>
       {loggedIn ? <Navigate to='/contacts' replace={true} /> :
-        <Container>
+        <StyledContainer>
         <Message>Join us now!</Message>
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
@@ -85,12 +84,12 @@ const RegisterPage = () => {
                 </Form.Control.Feedback>
               </Form.Group>
               <StyledButton variant="primary" type="submit">
-                Submit
+                Register
               </StyledButton>
             </StyledForm>
           )}
         </Formik>
-        </Container>  
+        </StyledContainer>  
       }
   </>
     )

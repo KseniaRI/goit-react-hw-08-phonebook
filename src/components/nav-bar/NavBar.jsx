@@ -10,6 +10,8 @@ import { NavLink } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { Box } from 'components/Box';
 import { FcMultipleSmartphones } from 'react-icons/fc';
+import { AiOutlineContacts, AiOutlineUsergroupAdd } from 'react-icons/ai';
+import { IoIosContact } from 'react-icons/io'
 
 export const NavBar = () => {
 
@@ -21,12 +23,7 @@ export const NavBar = () => {
       <StyledNavBar sticky="top">
           <Container>
                 <Navbar.Brand to="/" as={NavLink}>
-                  <FcMultipleSmartphones size="30"/>
-                  {/* <img src="https://cdn-icons.flaticon.com/png/512/2208/premium/2208278.png?token=exp=1661188455~hmac=8f45dd15bca02062dc9a3241837ffa6a"
-                      className="d-inline-block"
-                      alt="phone"
-                      width="30"
-                  /> */}
+                  <FcMultipleSmartphones size="42"/>
                 {' '}
                   Phonebook
                 </Navbar.Brand >
@@ -38,11 +35,27 @@ export const NavBar = () => {
                     <Box as="div"
                         display="flex"
                     >
-                        <Nav.Link to="/" as={NavLink}>Add new contact</Nav.Link>
-                        <Nav.Link to="/contacts" as={NavLink}>Your contacts</Nav.Link>
+                    <Nav.Link to="/" as={NavLink}>
+                      <AiOutlineUsergroupAdd size="26"/>
+                      {' '}
+                      Add new contact
+                    </Nav.Link>
+                    <Nav.Link to="/contacts" as={NavLink}>
+                      <AiOutlineContacts size="32"/>
+                      {' '}
+                      Your contacts
+                    </Nav.Link>
                     </Box>}
                     {loggedIn ? <div>
-                                  <Navbar.Text>Welcome <b>{user}</b></Navbar.Text>
+                                  <Navbar.Text> 
+                                    Welcome
+                                    {' '}
+                                    <b>
+                                      <IoIosContact size="32" />
+                                      {' '}
+                                      {user}
+                                    </b>
+                                  </Navbar.Text>
                                   <StyledButton type="button" onClick={() => dispatch(logout())}>Logout</StyledButton>
                                 </div>
            
