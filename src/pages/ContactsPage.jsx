@@ -1,8 +1,9 @@
-import { Box } from "components/Box"
+
 import { ContactList } from "components/contact-list/ContactList";
 import { Filter } from "components/filter/Filter";
 import { SectionTitle } from "components/section-title/SectionTitle";
 import { useEffect } from "react";
+import { Container } from "react-bootstrap";
 import { useDispatch} from "react-redux";
 import { fetchContacts } from "redux/contacts/phonebook-operations";
 
@@ -16,11 +17,11 @@ const ContactsPage = () => {
     }, [dispatch]);
 
     return (
-        <Box as='div'>
+        <Container>
            <SectionTitle title="Contacts"/>
            <Filter/>
            <ContactList /> 
-        </Box>    
+        </Container>    
     )
 }
 

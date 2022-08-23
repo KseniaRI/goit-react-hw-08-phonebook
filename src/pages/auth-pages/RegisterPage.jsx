@@ -7,6 +7,7 @@ import { register } from 'redux/auth/auth-operations';
 import { Navigate} from 'react-router-dom';
 import { getIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Message } from './AuthPages.styled';
+import { Container } from 'react-bootstrap';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const RegisterPage = () => {
   return (
     <>
       {loggedIn ? <Navigate to='/contacts' replace={true} /> :
-        <>
+        <Container>
         <Message>Join us now!</Message>
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
@@ -89,7 +90,7 @@ const RegisterPage = () => {
             </StyledForm>
           )}
         </Formik>
-        </>  
+        </Container>  
       }
   </>
     )

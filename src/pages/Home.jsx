@@ -1,14 +1,14 @@
-import { Box } from "components/Box"
-import { PageTitle } from "components/page-title/PageTitle";
+import { Header } from "components/header/Header";
 import { PhonebookForm } from "components/phonebook-form/PhonebokForm";
+import { Container } from "react-bootstrap";
 
 
 const HomePage = () => {
     return (
-        <Box as="div">
-            <PageTitle title="Phonebook" />
+        <Container>
+            <Header/>
             <PhonebookForm />
-        </Box>
+        </Container>
     )
 }
 
