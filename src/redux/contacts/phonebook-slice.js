@@ -51,16 +51,11 @@ export const filterSlice = createSlice({
     name: 'filter',
     initialState: {
         value: '',
-        isFiltered: false,
     },
     reducers: {
         changeFilter(state, action) {
             state.value = action.payload;
-            state.isFiltered = true;
         },
-        changeFocus(state) {
-            state.isFiltered = false;
-        }
     }
 });
 

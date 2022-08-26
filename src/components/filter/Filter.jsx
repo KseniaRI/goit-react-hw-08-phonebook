@@ -5,6 +5,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { Box } from 'components/Box';
 import { Form, InputGroup } from 'react-bootstrap';
 
+
 export const Filter = () => {
     const value = useSelector(getFilter);
     const dispatch = useDispatch();
@@ -16,13 +17,12 @@ export const Filter = () => {
         flexDirection="column"
             alignItems="center"
             width="280px"
-        m="0 auto">
+            m="0 auto">
             <InputGroup className="mb-3">
                 <InputGroup.Text><AiOutlineSearch size="24" /></InputGroup.Text>
                 <Form.Control 
                     value={value}
                     onChange={(evt) => dispatch(filterSlice.actions.changeFilter(evt.target.value))}
-                    onBlur = {() => dispatch(filterSlice.actions.changeFocus())}
                     placeholder="Find Contact by name"/>
             </InputGroup>
         </Box>

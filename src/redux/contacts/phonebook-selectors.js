@@ -2,7 +2,6 @@ export const getItems = state => state.phonebook.items.contacts;
 
 export const getIsLoading = state => state.phonebook.items.isLoading;
 export const getFilter = state => state.phonebook.filter.value;
-export const getIsFiltered = state => state.phonebook.filter.isFiltered
 
 export const getVisibleContacts = state => {
   const allContacts = getItems(state);

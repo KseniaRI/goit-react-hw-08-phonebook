@@ -5,14 +5,13 @@ import { fetchContacts } from "redux/contacts/phonebook-operations";
 import { Filter } from "components/filter/Filter";
 import { ContactList } from "components/contact-list/ContactList";
 import { ContactsHeader } from "components/contacts-header/ContactsHeader";
-import { getIsFiltered, getVisibleContacts } from "redux/contacts/phonebook-selectors";
+import { getVisibleContacts } from "redux/contacts/phonebook-selectors";
 import { NavLink } from "react-router-dom";
 import { Message } from "./auth-pages/AuthPages.styled";
 
 const ContactsPage = () => {
   const contacts = useSelector(getVisibleContacts);
   const dispatch = useDispatch();
-  const isFiltered = useSelector(getIsFiltered);
   
   useEffect(() => {
     dispatch(fetchContacts());
@@ -21,9 +20,9 @@ const ContactsPage = () => {
       <Container>
          <ContactsHeader/>
       <Filter />
-      {contacts.length === 0 && !isFiltered ? <Message>There are no contacts yet. <NavLink to='/'>Add contacts</NavLink></Message>
+      {contacts.length === 0 ? <Message>There are no contacts. <NavLink to='/'>Add contact</NavLink> or change the search query.</Message>
         : <ContactList />}
-      {contacts.length === 0 && isFiltered && <Message> There are no contacts matching the search. </Message>}
+      
       </Container>    
   )
 }
