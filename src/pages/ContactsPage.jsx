@@ -6,7 +6,6 @@ import { Filter } from "components/filter/Filter";
 import { ContactList } from "components/contact-list/ContactList";
 import { ContactsHeader } from "components/contacts-header/ContactsHeader";
 import { getVisibleContacts } from "redux/contacts/phonebook-selectors";
-import { NavLink } from "react-router-dom";
 import { Message } from "./auth-pages/AuthPages.styled";
 
 const ContactsPage = () => {
