@@ -20,7 +20,7 @@ const ContactsPage = () => {
       <Container>
          <ContactsHeader/>
       <Filter />
-      {contacts.length === 0 ? <Message>There are no contacts. <NavLink to='/'>Add contact</NavLink> or change the search query.</Message>
+      {contacts.length === 0 ? <Message>There are no contacts.</Message>
         : <ContactList />}
       
       </Container>    
