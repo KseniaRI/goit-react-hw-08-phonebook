@@ -8,6 +8,7 @@ import { Form, InputGroup } from 'react-bootstrap';
 export const Filter = () => {
     const value = useSelector(getFilter);
     const dispatch = useDispatch();
+    
 
     return (
         <Box as="div"
@@ -21,6 +22,7 @@ export const Filter = () => {
                 <Form.Control 
                     value={value}
                     onChange={(evt) => dispatch(filterSlice.actions.changeFilter(evt.target.value))}
+                    onBlur = {() => dispatch(filterSlice.actions.changeFocus())}
                     placeholder="Find Contact by name"/>
             </InputGroup>
         </Box>

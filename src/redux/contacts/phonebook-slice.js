@@ -49,10 +49,17 @@ export const contactsSlice = createSlice({
 
 export const filterSlice = createSlice({
     name: 'filter',
-    initialState: '',
+    initialState: {
+        value: '',
+        isFiltered: false,
+    },
     reducers: {
-        changeFilter(_, action) {
-            return action.payload;
+        changeFilter(state, action) {
+            state.value = action.payload;
+            state.isFiltered = true;
+        },
+        changeFocus(state) {
+            state.isFiltered = false;
         }
     }
 });
