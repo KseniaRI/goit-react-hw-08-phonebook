@@ -98,6 +98,4 @@ PhonebookForm.propTypes = {
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
   })),
-  isAdding: PropTypes.bool.isRequired,
-  loggedIn: PropTypes.bool.isRequired,
 }

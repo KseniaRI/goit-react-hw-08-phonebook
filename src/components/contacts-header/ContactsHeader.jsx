@@ -1,5 +1,4 @@
 import { PageTitle } from "components/page-title/PageTitle";
-import PropTypes from 'prop-types';
 import { StyledContactsHeader } from "./ContactsHeader.styled";
 
 export const ContactsHeader = () => {
@@ -10,6 +9,3 @@ export const ContactsHeader = () => {
     )
 }
 
-ContactsHeader.propTypes = {
-    title: PropTypes.string.isRequired,
-}

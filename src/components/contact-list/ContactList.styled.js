@@ -21,7 +21,7 @@ justify-content: space-around;
 align-items: center;
 width: 100%;
 
-&:nth-child(2n){
+&:nth-of-type(2n){
   background-color: ${p => p.theme.colors.background};
 }
 `;

@@ -7,7 +7,6 @@ import { login } from 'redux/auth/auth-operations';
 import "react-toastify/dist/ReactToastify.css";
 import { getIsLoggedIn } from 'redux/auth/auth-selectors';
 import { Navigate, NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { Message, StyledContainer } from './AuthPages.styled';
 
 
@@ -79,10 +78,5 @@ const LoginPage = () => {
   )
 }
 
-LoginPage.propTypes = {
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  loggedIn: PropTypes.bool.isRequired,
-}
 
 export default LoginPage;

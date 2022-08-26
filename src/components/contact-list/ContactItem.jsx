@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { ClipLoader } from "react-spinners"
 import { DeleteButton, ItemWrap, StyledListGroupItem} from "./ContactList.styled"
 
+
 export const ContactItem = ({ id, name, number }) => {
     const isDeleting = useSelector(getIsLoading);
     const dispatch = useDispatch();
@@ -35,5 +36,4 @@ ContactItem.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
-    isDeleting: PropTypes.bool.isRequired,
 }

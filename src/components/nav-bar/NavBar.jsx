@@ -3,7 +3,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import { StyledNavBar } from './NavBar.styled';
 import { getIsLoggedIn } from "redux/auth/auth-selectors";
 import { useSelector } from "react-redux";
-import PropTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 import { NavAuth } from './NavAuth';
 import { UserMenu } from './UserMenu';
@@ -30,6 +29,3 @@ export const NavBar = () => {
   );
 }
 
-NavBar.propTypes = {
-    loggedIn: PropTypes.bool.isRequired,
-}

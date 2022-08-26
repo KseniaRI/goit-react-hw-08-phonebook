@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { register } from 'redux/auth/auth-operations';
 import { Navigate} from 'react-router-dom';
 import { getIsLoggedIn } from 'redux/auth/auth-selectors';
-import PropTypes from 'prop-types';
 import { Message, StyledContainer } from './AuthPages.styled';
 import { StyledButton, StyledForm } from '../../Forms.styled';
 
@@ -90,11 +89,5 @@ const RegisterPage = () => {
     )
 }
 
-RegisterPage.propTypes = {
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  loggedIn: PropTypes.bool.isRequired,
-}
 
 export default RegisterPage;
