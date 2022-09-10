@@ -1,5 +1,4 @@
 export const getItems = state => state.phonebook.items.contacts;
-
 export const getIsLoading = state => state.phonebook.items.isLoading;
 export const getFilter = state => state.phonebook.filter.value;
 

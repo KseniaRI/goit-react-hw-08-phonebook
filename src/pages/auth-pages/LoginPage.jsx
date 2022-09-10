@@ -2,21 +2,18 @@ import Form from 'react-bootstrap/Form';
 import { StyledButton, StyledForm } from '../../Forms.styled';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { login } from 'redux/auth/auth-operations';
 import "react-toastify/dist/ReactToastify.css";
-import { getIsLoggedIn } from 'redux/auth/auth-selectors';
-import { Navigate, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Message, StyledContainer } from './AuthPages.styled';
 
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const loggedIn = useSelector(getIsLoggedIn);
 
   return (
     <>
-      {loggedIn ? <Navigate to='/contacts' replace={true} /> :
         <StyledContainer>
           <Message>Please Log in or <NavLink to="/register">Register</NavLink></Message>
           <Formik
@@ -73,7 +70,6 @@ const LoginPage = () => {
             )}
           </Formik>
         </StyledContainer>
-      }
     </>
   )
 }
