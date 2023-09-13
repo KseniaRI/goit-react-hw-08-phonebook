@@ -26,7 +26,7 @@ export const authSlice = createSlice({
             state.error = action.payload;
         },
         [login.pending](state) {
-             state.isLoggedIn = false;
+            state.isLoggedIn = false;
         },
         [login.fulfilled](state, action){
             state.user = action.payload.user;
